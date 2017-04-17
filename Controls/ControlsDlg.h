@@ -12,10 +12,9 @@ class CControlsDlg : public CDialogEx
 public:
 	CControlsDlg(CWnd* pParent = NULL);	// 표준 생성자입니다.
 
+	CtFrame m_frame;
 // 대화 상자 데이터입니다.
-#ifdef AFX_DESIGN_TIME
 	enum { IDD = IDD_CONTROLS_DIALOG };
-#endif
 
 	protected:
 	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV 지원입니다.
@@ -31,4 +30,8 @@ protected:
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP()
+public:
+	afx_msg void OnSize(UINT nType, int cx, int cy);
+	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
+	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
 };

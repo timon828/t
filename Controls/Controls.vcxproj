@@ -75,12 +75,16 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -154,6 +158,9 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
+    <PreBuildEvent>
+      <Command>..\..\version\makeversion /inc $(ProjectDir)\version.ver</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -180,6 +187,9 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
+    <PreBuildEvent>
+      <Command>..\..\version\makeversion /inc $(ProjectDir)\version.ver</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -187,13 +197,43 @@
   <ItemGroup>
     <ClInclude Include="Controls.h" />
     <ClInclude Include="ControlsDlg.h" />
+    <ClInclude Include="CtAction.h" />
+    <ClInclude Include="CtButton.h" />
+    <ClInclude Include="CtCheck.h" />
+    <ClInclude Include="CtDump.h" />
+    <ClInclude Include="CtEdit.h" />
+    <ClInclude Include="CtFrame.h" />
+    <ClInclude Include="CtGroup.h" />
+    <ClInclude Include="CtMenu.h" />
+    <ClInclude Include="CtMenuBar.h" />
+    <ClInclude Include="CtRadio.h" />
+    <ClInclude Include="CtStatic.h" />
+    <ClInclude Include="CtToolTip.h" />
+    <ClInclude Include="CtWnd.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="SKETCH.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="tColor.h" />
+    <ClInclude Include="tWindows.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Controls.cpp" />
     <ClCompile Include="ControlsDlg.cpp" />
+    <ClCompile Include="CtAction.cpp" />
+    <ClCompile Include="CtButton.cpp" />
+    <ClCompile Include="CtCheck.cpp" />
+    <ClCompile Include="CtDump.cpp" />
+    <ClCompile Include="CtEdit.cpp" />
+    <ClCompile Include="CtFrame.cpp" />
+    <ClCompile Include="CtGroup.cpp" />
+    <ClCompile Include="CtMenu.cpp" />
+    <ClCompile Include="CtMenuBar.cpp" />
+    <ClCompile Include="CtRadio.cpp" />
+    <ClCompile Include="CtStatic.cpp" />
+    <ClCompile Include="CtToolTip.cpp" />
+    <ClCompile Include="CtWnd.cpp" />
+    <ClCompile Include="SKETCH.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -206,6 +246,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="res\Controls.rc2" />
+    <None Include="version.ver" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\Controls.ico" />
@@ -213,4 +254,9 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="Controls.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>

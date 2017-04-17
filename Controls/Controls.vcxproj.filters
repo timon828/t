@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="tControls">
+      <UniqueIdentifier>{4714a7f1-c5ad-4efa-90c4-9252d8154aff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tWindow">
+      <UniqueIdentifier>{8293f85c-9e58-4442-843f-8bb0d73f948f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -33,6 +39,54 @@
     <ClInclude Include="Resource.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="CtAction.h">
+      <Filter>tControls</Filter>
+    </ClInclude>
+    <ClInclude Include="CtButton.h">
+      <Filter>tControls</Filter>
+    </ClInclude>
+    <ClInclude Include="CtCheck.h">
+      <Filter>tControls</Filter>
+    </ClInclude>
+    <ClInclude Include="CtDump.h">
+      <Filter>tControls</Filter>
+    </ClInclude>
+    <ClInclude Include="CtEdit.h">
+      <Filter>tControls</Filter>
+    </ClInclude>
+    <ClInclude Include="CtFrame.h">
+      <Filter>tControls</Filter>
+    </ClInclude>
+    <ClInclude Include="CtGroup.h">
+      <Filter>tControls</Filter>
+    </ClInclude>
+    <ClInclude Include="CtMenu.h">
+      <Filter>tControls</Filter>
+    </ClInclude>
+    <ClInclude Include="CtMenuBar.h">
+      <Filter>tControls</Filter>
+    </ClInclude>
+    <ClInclude Include="CtRadio.h">
+      <Filter>tControls</Filter>
+    </ClInclude>
+    <ClInclude Include="CtStatic.h">
+      <Filter>tControls</Filter>
+    </ClInclude>
+    <ClInclude Include="CtToolTip.h">
+      <Filter>tControls</Filter>
+    </ClInclude>
+    <ClInclude Include="CtWnd.h">
+      <Filter>tControls</Filter>
+    </ClInclude>
+    <ClInclude Include="SKETCH.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="tWindows.h">
+      <Filter>tWindow</Filter>
+    </ClInclude>
+    <ClInclude Include="tColor.h">
+      <Filter>tWindow</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Controls.cpp">
@@ -42,6 +96,48 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="CtWnd.cpp">
+      <Filter>tControls</Filter>
+    </ClCompile>
+    <ClCompile Include="CtToolTip.cpp">
+      <Filter>tControls</Filter>
+    </ClCompile>
+    <ClCompile Include="CtStatic.cpp">
+      <Filter>tControls</Filter>
+    </ClCompile>
+    <ClCompile Include="CtRadio.cpp">
+      <Filter>tControls</Filter>
+    </ClCompile>
+    <ClCompile Include="CtMenuBar.cpp">
+      <Filter>tControls</Filter>
+    </ClCompile>
+    <ClCompile Include="CtMenu.cpp">
+      <Filter>tControls</Filter>
+    </ClCompile>
+    <ClCompile Include="CtGroup.cpp">
+      <Filter>tControls</Filter>
+    </ClCompile>
+    <ClCompile Include="CtFrame.cpp">
+      <Filter>tControls</Filter>
+    </ClCompile>
+    <ClCompile Include="CtEdit.cpp">
+      <Filter>tControls</Filter>
+    </ClCompile>
+    <ClCompile Include="CtDump.cpp">
+      <Filter>tControls</Filter>
+    </ClCompile>
+    <ClCompile Include="CtCheck.cpp">
+      <Filter>tControls</Filter>
+    </ClCompile>
+    <ClCompile Include="CtButton.cpp">
+      <Filter>tControls</Filter>
+    </ClCompile>
+    <ClCompile Include="CtAction.cpp">
+      <Filter>tControls</Filter>
+    </ClCompile>
+    <ClCompile Include="SKETCH.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -54,6 +150,7 @@
     <None Include="res\Controls.rc2">
       <Filter>리소스 파일</Filter>
     </None>
+    <None Include="version.ver" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\Controls.ico">

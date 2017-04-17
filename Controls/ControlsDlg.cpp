@@ -20,9 +20,7 @@ public:
 	CAboutDlg();
 
 // 대화 상자 데이터입니다.
-#ifdef AFX_DESIGN_TIME
 	enum { IDD = IDD_ABOUTBOX };
-#endif
 
 	protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV 지원입니다.
@@ -32,7 +30,7 @@ protected:
 	DECLARE_MESSAGE_MAP()
 };
 
-CAboutDlg::CAboutDlg() : CDialogEx(IDD_ABOUTBOX)
+CAboutDlg::CAboutDlg() : CDialogEx(CAboutDlg::IDD)
 {
 }
 
@@ -50,7 +48,7 @@ END_MESSAGE_MAP()
 
 
 CControlsDlg::CControlsDlg(CWnd* pParent /*=NULL*/)
-	: CDialogEx(IDD_CONTROLS_DIALOG, pParent)
+	: CDialogEx(CControlsDlg::IDD, pParent)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -64,6 +62,9 @@ BEGIN_MESSAGE_MAP(CControlsDlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	ON_WM_SIZE()
+	ON_WM_ERASEBKGND()
+	ON_WM_CTLCOLOR()
 END_MESSAGE_MAP()
 
 
@@ -99,7 +100,12 @@ BOOL CControlsDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// 작은 아이콘을 설정합니다.
 
 	// TODO: 여기에 추가 초기화 작업을 추가합니다.
+	LONG lStyle = GetWindowLong(GetSafeHwnd(), GWL_STYLE);
+	lStyle |= WS_CLIPCHILDREN | WS_CLIPSIBLINGS;
+	SetWindowLong(GetSafeHwnd(), GWL_STYLE, lStyle);
 
+
+	m_frame.CreateFrame(this);
 	return TRUE;  // 포커스를 컨트롤에 설정하지 않으면 TRUE를 반환합니다.
 }
 
@@ -152,3 +158,33 @@ HCURSOR CControlsDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
+
+
+void CControlsDlg::OnSize(UINT nType, int cx, int cy)
+{
+	CDialogEx::OnSize(nType, cx, cy);
+
+	// TODO: 여기에 메시지 처리기 코드를 추가합니다.
+	if (m_frame.GetSafeHwnd())
+		m_frame.SetWindowPos(NULL, 0, 0, cx, cy, SWP_NOACTIVATE | SWP_NOZORDER);
+
+}
+
+
+BOOL CControlsDlg::OnEraseBkgnd(CDC* pDC)
+{
+	// TODO: 여기에 메시지 처리기 코드를 추가 및/또는 기본값을 호출합니다.
+	return TRUE;
+	return CDialogEx::OnEraseBkgnd(pDC);
+}
+
+
+HBRUSH CControlsDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
+{
+	HBRUSH hbr = CDialogEx::OnCtlColor(pDC, pWnd, nCtlColor);
+
+	// TODO:  여기서 DC의 특성을 변경합니다.
+
+	// TODO:  기본값이 적당하지 않으면 다른 브러시를 반환합니다.
+	return hbr;
+}
